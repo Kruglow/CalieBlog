@@ -1,0 +1,50 @@
+{% load menu %}
+{% load aside_menu %}
+{% load static %}
+
+
+<div id="nav-top">
+    <div class="container">
+        <!-- social -->
+        <ul class="nav-social">
+            <li><a href="{% url 'add_post' %}">Добавить пост</a></li>
+            {% if user.is_authenticated %}
+                <li><a class="nav-item nav-link" href="{% url 'profile' %}">Профиль {{ user.username }}</a></li>
+                <li><a class="nav-item nav-link" href="{% url 'logout' %}">Выход</a></li>
+            {% else %}
+                <li><a class="nav-item nav-link" href="{% url 'login' %}">Вход</a></li>
+                <li><a class="nav-item nav-link" href="{% url 'register' %}">Регистрация</a></li>
+            {% endif %}
+
+        </ul>
+        <!-- /social -->
+
+        <!-- logo -->
+        <div class="nav-logo">
+            <a href="{% url 'home' %}" class="logo"><img src="{% static 'img/logo.png' %}" alt="Calie"></a>
+            <!--						<a href="{% url 'home' %}" class="logo"><img src="{{ logo.image.url }}" alt="Calie"></a>-->
+
+        </div>
+        <!-- /logo -->
+
+        <!-- search & aside toggle -->
+        <div class="nav-btns">
+            <button class="aside-btn"><i class="fa fa-bars"></i></button>
+            <button class="search-btn"><i class="fa fa-search"></i></button>
+            <div id="nav-search">
+                <form action="{% url 'search' %}" method="get">
+                    <input class="input" name="search" type="text" placeholder="Enter your search...">
+                </form>
+                <button class="nav-close search-close">
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        <!-- /search & aside toggle -->
+    </div>
+</div>
+
+
+{% show_menu %}
+
+{% get_aside_menu %}

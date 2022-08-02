@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load aside %}
+{% block title %} {{title}} {%endblock%}
+
+{% block content %}
+<!-- PAGE HEADER -->
+		<div class="page-header">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-offset-1 col-md-10 text-center">
+						<div class="author">
+							<img class="author-img center-block" src="{{bio.image.url}}" alt="{{ view.kwargs.slug }}">
+							<h1 class="text-uppercase">{{ view.kwargs.slug }}</h1>
+
+
+							<p class="lead">{{bio.bio}}</p>
+
+
+							<ul class="author-social">
+								{% if bio.facebook %}
+									<li><a href="{{bio.facebook}}"><i class="fa fa-facebook"></i></a></li>
+								{% endif %}
+								{% if bio.twitter %}
+									<li><a href="{{bio.twitter}}"><i class="fa fa-twitter"></i></a></li>
+								{% endif %}
+								{% if bio.inst %}
+								<li><a href="{{bio.inst}}"><i class="fa fa-instagram"></i></a></li>
+								{% endif %}
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /PAGE HEADER -->
+
+<!-- SECTION -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<div class="col-md-8">
+					<!-- post -->
+					{% for post in posts %}
+					<div class="post post-row">
+						<a class="post-img" href="{{post.get_absolute_url}}"><img src="{{ post.image.url }}" alt="{{ post.title }}"></a>
+						<div class="post-body">
+							<div class="post-category">
+								{% for category in post.category.all %}
+									<a href="{{category.get_absolute_url}}">{{category.title}}</a>
+								{% endfor %}
+							</div>
+							<h3 class="post-title"><a href="{{post.get_absolute_url}}">{{ post.title }}</a></h3>
+							<ul class="post-meta">
+								<li><a href="{{post.author.get_absolute_url}}">{{ post.author }}</a></li>
+								<li>{{post.created_at|date}}</li>
+							</ul>
+							<p>{{post.content|truncatechars_html:145|safe}}</p>
+						</div>
+					</div>
+					{% endfor %}
+					<!-- /post -->
+
+
+					<div class="section-row loadmore text-center">
+						<a href="#" class="primary-button">Load More</a>
+					</div>
+				</div>
+
+
+					<!-- ad widget-->
+
+					{% get_aside %}
+
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /SECTION -->
+
+{% endblock %}

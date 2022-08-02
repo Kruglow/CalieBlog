@@ -1,0 +1,19 @@
+
+<div class="post_grid">
+	{% for post in posts %}
+					<!-- post -->
+					<div class="post post-widget">
+						<a class="post-img" href="{{ post.get_absolute_url }}"><img src="{{post.image.url}}" alt="{{ post.title }}"></a>
+						<div class="post-body">
+							<div class="post-category">
+								{% for post_cat in post.category.all %}
+								  <a href="{{post_cat.get_absolute_url}}">{{post_cat.title}}</a>
+								{% endfor %}
+							</div>
+							<h3 class="post-title"><a href="{{post.get_absolute_url}}">{{post.title}}</a></h3>
+						</div>
+					</div>
+					<!-- /post -->
+
+	{% endfor %}
+</div>

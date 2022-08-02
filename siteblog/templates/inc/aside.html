@@ -1,0 +1,103 @@
+<div class="col-md-4">
+    <!-- ad widget-->
+    <!-- /ad widget -->
+
+    <!-- social widget -->
+    <div class="aside-widget">
+        <div class="section-title">
+            <h2 class="title">Social Media</h2>
+        </div>
+        <div class="social-widget">
+            <ul>
+                <li>
+                    <a href="#" class="social-facebook">
+                        <i class="fa fa-facebook"></i>
+                        <span>21.2K<br>Followers</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="social-twitter">
+                        <i class="fa fa-twitter"></i>
+                        <span>10.2K<br>Followers</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="social-google-plus">
+                        <i class="fa fa-google-plus"></i>
+                        <span>5K<br>Followers</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /social widget -->
+
+    <!-- category widget -->
+    <div class="aside-widget">
+        <div class="section-title">
+            <h2 class="title">Categories</h2>
+        </div>
+        <div class="category-widget">
+            <ul>
+                {% for item in categories %}
+				    <li><a href="{{ item.get_absolute_url }}">{{item.title}} <span>{{item.cnt}}</span></a></li>
+			    {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <!-- /category widget -->
+
+    <!-- newsletter widget -->
+    <div class="aside-widget">
+        <div class="section-title">
+            <h2 class="title">Newsletter</h2>
+        </div>
+        <div class="newsletter-widget">
+            <form>
+                <p>Nec feugiat nisl pretium fusce id velit ut tortor pretium.</p>
+                <input class="input" name="newsletter" placeholder="Enter Your Email">
+                <button class="primary-button">Subscribe</button>
+            </form>
+        </div>
+    </div>
+    <!-- /newsletter widget -->
+
+    <!-- post widget -->
+    <div class="aside-widget">
+        <div class="section-title">
+            <h2 class="title">Popular Posts</h2>
+        </div>
+        <!-- post -->
+        {% for post in post %}
+        <div class="post post-widget">
+            <a class="post-img" href="{{post.get_absolute_url}}"><img src="{{post.image.url}}" alt="{{post.title}}"></a>
+            <div class="post-body">
+                <div class="post-category">
+                    {% for category in post.category.all %}
+                    <a href="{{category.get_absolute_url}}">{{category.title}}</a>
+                    {% endfor %}
+                </div>
+                <h3 class="post-title"><a href="{{post.get_absolute_url}}">{{post.title}}</a></h3>
+            </div>
+        </div>
+        {% endfor %}
+        <!-- /post -->
+
+    </div>
+    <div class="aside-widget">
+                    <div class="section-title">
+                        <h2 class="title">Instagram</h2>
+                    </div>
+                    <div class="galery-widget">
+                        <ul>
+                            <li><a href="#"><img src="./img/galery-1.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="./img/galery-2.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="./img/galery-3.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="./img/galery-4.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="./img/galery-5.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="./img/galery-6.jpg" alt=""></a></li>
+                        </ul>
+                    </div>
+                </div>
+    <!-- /post widget -->
+</div>
