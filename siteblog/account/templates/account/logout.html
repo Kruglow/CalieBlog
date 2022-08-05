@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %} Логин {%endblock%}
+
+{% block content %}
+
+<!-- SECTION HOT -->
+
+	<!-- /SECTION -->
+
+	<!-- SECTION rESENTpOST AND SIDEBAR-->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+
+				<h1>Выход</h1>
+
+ <h2>Вы вышли из своей учетной записи</h2>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            <a href="{% url 'login' %}">Войти</a>
+        </small>
+    </div>
+
+
+
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /SECTION -->
+
+
+
+{% endblock %}

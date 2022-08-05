@@ -1,0 +1,22 @@
+{% load flatpages %}
+{% get_flatpages as flatpages %}
+<div id="nav-aside">
+    <ul class="nav-aside-menu">
+        <li><a href="{% url 'home' %}">Главная</a></li>
+        <li class="has-dropdown"><a>Categories</a>
+            <ul class="dropdown">
+                {% for category in categories %}
+                    <li><a href="{{category.get_absolute_url}}">{{category.title}}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+
+        {% for page in flatpages %}
+        <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+        {% endfor %}
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contacts</a></li>
+        <li><a href="#">Advertise</a></li>
+    </ul>
+    <button class="nav-close nav-aside-close"><span></span></button>
+</div>

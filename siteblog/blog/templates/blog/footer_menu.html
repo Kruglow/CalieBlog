@@ -1,0 +1,27 @@
+<div class="col-md-3">
+    <div class="footer-widget">
+        <h3 class="footer-title">Categories</h3>
+        <div class="category-widget">
+            <ul>
+                {% for item in categories %}
+                <li><a href="{{ item.get_absolute_url }}">{{item.title}} <span>{{item.cnt}}</span></a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="col-md-3">
+    <div class="footer-widget">
+        <h3 class="footer-title">Tags</h3>
+        <div class="tags-widget">
+            <ul>
+                {% for tags in tag %}
+                <li><a href="{{tags.get_absolute_url}}">{{tags.title}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

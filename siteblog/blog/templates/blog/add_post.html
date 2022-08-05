@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load hot_posts %}
+{% load category %}
+{% load aside %}
+{% block title %} {{title}} {%endblock%}
+
+{% block content %}
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+<!-- SECTION HOT -->
+
+	<!-- /SECTION -->
+
+	<!-- SECTION rESENTpOST AND SIDEBAR-->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+
+				<h1>Добавить запись</h1>
+
+				<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+{{ form.media }}
+    {{ form.as_p }}
+
+    <button type="submit">Загрузить</button>
+  </form>
+
+  <p><a href="{% url 'home' %}">На главную</a></p>
+
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /SECTION -->
+
+
+
+{% endblock %}
