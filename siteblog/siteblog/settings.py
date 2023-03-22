@@ -20,7 +20,7 @@ SOCIAL_AUTH_URL_NAMESPACE = 'social'
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ytcojucuc1t(5xk$q=f#_l(_&5lyj)x!8p398#il1pnj#ao2be'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -221,8 +221,7 @@ LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = '/login/google-oauth2/'
 LOGOUT_REDIRECT_URL = '/'
 # LOGIN_URL = 'login'
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '111278151258-98ok82h9dila8te4s9e5jq1orj0755i8.apps.googleusercontent.com' # Google Consumer Key
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+
 
 
 
